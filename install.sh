@@ -12,7 +12,7 @@ ln -sf $(pwd)/bashrc ~/.bashrc
 echo "✔ zsh as default shell"
 
 # install oh-my-zsh
-[ -d ~/.oh-my-zsh/custom}/themes/powerlevel10k ] || git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+[ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ] || git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 [ -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions] || git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
