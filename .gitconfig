@@ -1,0 +1,9 @@
+[core]
+	autocrlf = false
+[user]
+	email = hatimmurtuza10@gmail.com
+	name = Hatim
+[push]
+	default = simple
+[credential]
+	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
