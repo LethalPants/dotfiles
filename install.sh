@@ -12,14 +12,15 @@ ln -sf $(pwd)/bashrc ~/.bashrc
 echo "✔ zsh as default shell"
 
 # install oh-my-zsh
-[ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ] || git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+sh install.sh
+echo "✔ installed ohmyzsh"
 
+[ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ] || git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 [ -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions] || git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 # synlink oh-my-zsh theme
 mkdir -p ~/.oh-my-zsh && mkdir -p ~/.oh-my-zsh/themes
-ln -sf $(pwd)/oh-my-zsh/themes/lambda_robbyrussell.zsh-theme ~/.oh-my-zsh/themes/lambda_robbyrussell.zsh-theme
-ln -sf $(pwd)/oh-my-zsh/themes/emoji_robbyrussell.zsh-theme ~/.oh-my-zsh/themes/emoji_robbyrussell.zsh-theme
 echo "✔ oh my zsh configured!"
 
 ln -sf $(pwd)/zshrc ~/.zshrc
@@ -35,7 +36,7 @@ cp -f $(pwd)/p10k.zsh ~/.p10k.zsh
 echo "✔ .p10k symlinked"
 
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt -qq install nodejs
-sudo apt -qq install npm
-sudo apt -qq install python-pip
+sudo apt -qq install nodejs -y
+sudo apt -qq install npm -y
+sudo apt -qq install python-pip -y
 echo "✔ apt dev tools installed"
