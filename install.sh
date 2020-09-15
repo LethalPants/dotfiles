@@ -1,8 +1,8 @@
 echo "checking for updates..."
-sudo apt -qq update
+sudo apt update
 echo "✔ update done!"
 
-sudo apt -qq zsh git
+sudo apt-get install zsh git -y
 echo "✔ zsh and git installed"
 
 git pull
