@@ -35,7 +35,8 @@ cp -f $(pwd)/p10k.zsh ~/.p10k.zsh
 echo "✔ .p10k symlinked"
 
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt -qq install nodejs -y
-sudo apt -qq install npm -y
-sudo apt -qq install python-pip -y
+sudo apt install -y nodejs 
+sudo apt install npm -y
+sudo apt install python-pip -y
+sudo apt install build-essential
 echo "✔ apt dev tools installed"
