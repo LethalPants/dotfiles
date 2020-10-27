@@ -1,6 +1,5 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# Initialization code that may require console input (password prompts, [y/n] # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -13,14 +12,13 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/hatim/.oh-my-zsh
+export ZSH="/home/hatim/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -79,10 +77,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm zsh-autosuggestions)
+plugins=(git nvm zsh-autosuggestions web-search sudo)
 
 source $ZSH/oh-my-zsh.sh
-
 unsetopt PROMPT_SP
 PROMPT_EOL_MARK=''
 # User configuration
@@ -122,10 +119,12 @@ PROMPT_EOL_MARK=''
   alias nr='npm run'
   alias run='npm run'
   alias nis='npm i -S'
+  alias ni='npm i' 
   alias ys='yarn start'
   alias yd='yarn dev'
-  alias drop_cache="sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'\""
-
+  alias drop_cache="sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'\"" 
+  alias startpost='sudo service start postgresql'
+  alias statuspost='sudo service status postgresql'	
 # GIT Shortcuts
   alias ga='git add'
   alias gaa='git add .'
@@ -138,8 +137,9 @@ PROMPT_EOL_MARK=''
   alias gp='git pull'
   alias gpsh='git push'
   alias gss='git status -s'
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+	alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+LS_COLORS="ow=32" && export LS_COLORS
+source /home/hatim/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
