@@ -46,7 +46,7 @@ cp -f $(pwd)/p10k.zsh ~/.p10k.zsh
 echo "${Green}[✔]${Color_off} .p10k symlinked"
 
 curl -sLf https://spacevim.org/install.sh | bash
-ln -sf $(pwd)/vimrc ~/.SpaceVim/vimrc
+ln -sf $(pwd)/vimrc ~/.vimrc
 echo "${Green}[✔]${Color_off} installed SpaceVim and .vimrc symlinked"
 
 
