@@ -123,8 +123,8 @@ PROMPT_EOL_MARK=''
   alias ys='yarn start'
   alias yd='yarn dev'
   alias drop_cache="sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'\"" 
-  alias startpost='sudo service start postgresql'
-  alias statuspost='sudo service status postgresql'	
+  alias startpost='sudo service postgresql start'
+  alias statuspost='sudo service postgresql status'	
 # GIT Shortcuts
   alias ga='git add'
   alias gaa='git add .'
