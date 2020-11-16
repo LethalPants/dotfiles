@@ -34,7 +34,7 @@ echo "[✔] .gitconfig symlinked"
 cp -f $(pwd)/p10k.zsh ~/.p10k.zsh
 echo "[✔] .p10k symlinked"
 
-curl -sLf https://spacevim.org/install.sh | bash
+curl -sLf https://spacevim.org/install.sh | sudo -E bash
 ln -sf $(pwd)/vimrc ~/.vimrc
 echo "[✔] installed SpaceVim and .vimrc symlinked"
 
