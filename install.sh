@@ -8,6 +8,7 @@ echo "[✔] zsh and git installed"
 git pull
 echo "[✔] dotfiles are up to date"
 
+chsh -s $(which zsh)
 ln -sf $(pwd)/bashrc ~/.bashrc
 echo "[✔] zsh as default shell"
 
