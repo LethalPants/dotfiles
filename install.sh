@@ -1,4 +1,6 @@
 echo "checking for updates..."
+echo 'nameserver 8.8.8.8' | sudo tee -a /etc/resolv.conf
+sudo apt update && sudo apt-get upgrade
 sudo apt update
 echo "[✔] update done!"
 
@@ -33,14 +35,17 @@ echo "[✔] .gitconfig symlinked"
 cp -f $(pwd)/p10k.zsh ~/.p10k.zsh
 echo "[✔] .p10k symlinked"
 
-curl -sLf https://spacevim.org/install.sh | sudo -E bash
 ln -sf $(pwd)/vimrc ~/.vimrc
 echo "[✔] installed SpaceVim and .vimrc symlinked"
 
 
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt install -y nodejs
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+exec zsh
+nvm install node --lts
 sudo apt install npm -y
-sudo apt install python-pip -y
+sudo apt install yarn -y
+sudo apt install python3-pip -y
 sudo apt install build-essential
+sudo apt install postgresql postgresql-contrib -y
+sudo apt install redis-server -y
 echo "[✔] apt dev tools installed"
