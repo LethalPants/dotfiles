@@ -2,8 +2,8 @@
 	autocrlf = false
 [user]
 	email = hatimmurtuza10@gmail.com
-	name = Hatim
+	name = LethalPants
 [push]
 	default = simple
 [credential]
-	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
+	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe

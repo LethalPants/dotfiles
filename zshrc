@@ -143,3 +143,5 @@ PROMPT_EOL_MARK=''
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 LS_COLORS="ow=32" && export LS_COLORS
 source /home/hatim/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export GOPATH="$HOME/Go"
+export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"

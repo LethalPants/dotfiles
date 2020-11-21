@@ -8,6 +8,10 @@ set ignorecase
 set smartcase
 set backspace=indent,eol,start
 set laststatus=2
+set autoindent
+set expandtab
+set tabstop=2
+set smarttab
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>

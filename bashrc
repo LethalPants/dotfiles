@@ -117,3 +117,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 exec zsh
+fix_wsl2_interop() {
+	for i in $(pstree -np -s $$ | grep -o -E '[0-9]+'); do
+		if [[ -e "/run/WSL/${i}_interop" ]]; then
+			export WSL_INTEROP=/run/WSL/${i}_interop
+		fi
+	done
+}
