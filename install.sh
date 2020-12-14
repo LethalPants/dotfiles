@@ -2,6 +2,8 @@ echo "checking for updates..."
 echo 'nameserver 8.8.8.8' | sudo tee -a /etc/resolv.conf
 sudo apt update && sudo apt-get upgrade
 sudo apt update
+ln -sf $(pwd)/etc/wsl.conf /etc/wsl.conf
+
 echo "[✔] update done!"
 
 sudo apt-get install zsh git -y
