@@ -35,8 +35,10 @@ echo "[✔] .gitconfig symlinked"
 cp -f $(pwd)/p10k.zsh ~/.p10k.zsh
 echo "[✔] .p10k symlinked"
 
+[ -d ~ ] || git clone https://github.com/itchyny/lightline.vim ~/.vim/pack/plugins/start/lightline
+git clone git://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
 ln -sf $(pwd)/vimrc ~/.vimrc
-echo "[✔] installed SpaceVim and .vimrc symlinked"
+echo "[✔] .vimrc symlinked"
 
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
