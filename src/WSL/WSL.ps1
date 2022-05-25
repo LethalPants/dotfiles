@@ -1,3 +1,9 @@
+function Move-Ubuntu-To-Drive {
+  if(-not($Config.MoveWSL -eq "Y")){
+  Invoke-Expression (Invoke-RestMethod -Uri "https://raw.githubusercontent.com/pxlrbt/move-wsl/master/move-wsl.ps1");
+  }
+}
+
 function Update-Ubuntu-Packages-Repository {
   Write-Host "Updating Ubuntu package repository:" -ForegroundColor "Green";
   wsl sudo apt --yes update;
@@ -162,6 +168,7 @@ function Set-Zsh-As-Default-In-Ubuntu {
 }
 
 wsl --install -d Ubuntu-20.04
+Move-Ubuntu-To-Drive
 Update-Ubuntu-Packages-Repository;
 Update-Ubuntu-Packages;
 
