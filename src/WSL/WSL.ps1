@@ -1,7 +1,8 @@
 function Invoke-Install-File {
   $InstallFilePath = Join-Path -Path $DotfilesWorkFolder -ChildPath "WSL" | Join-Path -ChildPath "install.sh";
+  $InstallWSLFilePath = wsl wslpath $InstallFilePath.Replace("\", "\\");
   Write-Host "Running install script..." -ForegroundColor "Green"
-  wsl sudo bash $InstallFilePath;
+  wsl sudo bash $InstallWSLFilePath;
 
 }
 
