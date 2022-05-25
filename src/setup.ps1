@@ -28,12 +28,6 @@ $Config = Get-Configuration-File -DotfilesConfigFile $DotfilesConfigFile;
 # Set alias for HKEY_CLASSES_ROOT
 Set-PSDrive-HKCR;
 
-# Check is PSGallery is set to trusted, if not set as trusted
-if (-not (Get-PSRepository-Trusted-Status -PSRepositoryName "PSGallery")) {
-  Write-Host "Setting up PSGallery as PowerShell trusted repository..." -ForegroundColor "Green";
-  Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted;
-}
-
 # Register the script to start after reboot
 Register-DotfilesScript-As-RunOnce;
 
