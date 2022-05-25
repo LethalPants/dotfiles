@@ -20,7 +20,7 @@ foreach ($DotfilesHelper in $DotfilesHelpers) {
 };
 
 # Save user configuration in persistence
-Set-Configuration-File -DotfilesConfigFile $DotfilesConfigFile -ComputerName $ComputerName -GitUserName $GitUserName -GitUserEmail $GitUserEmail -WorkspaceDisk $WorkspaceDisk -MoveWSL $MoveWSL;
+Set-Configuration-File -DotfilesConfigFile $DotfilesConfigFile -ComputerName $ComputerName -GitUserName $GitUserName -GitUserEmail $GitUserEmail -WorkspaceDisk $WorkspaceDisk;
 
 # Load user configuration from persistence
 $Config = Get-Configuration-File -DotfilesConfigFile $DotfilesConfigFile;

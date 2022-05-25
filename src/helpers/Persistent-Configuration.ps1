@@ -19,11 +19,7 @@ function Set-Configuration-File {
 
     [Parameter( Position = 4, Mandatory = $TRUE)]
     [String]
-    $WorkspaceDisk,
-
-    [Parameter( Position = 5, Mandatory = $TRUE)]
-    [String]
-    $MoveWSL
+    $WorkspaceDisk
   )
 
   if (-not (Test-Path -Path $DotfilesConfigFile)) {
@@ -33,7 +29,6 @@ function Set-Configuration-File {
       GitUserName   = $GitUserName
       GitUserEmail  = $GitUserEmail
       WorkspaceDisk = $WorkspaceDisk
-      MoveWSL       = $MoveWSL
     };
 
     Set-Content -Path $DotfilesConfigFile -Value ($ConfigJsonBody | ConvertTo-Json);
