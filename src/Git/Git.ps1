@@ -6,5 +6,6 @@ function Set-Git-Configuration {
   Write-Host "Git was successfully configured." -ForegroundColor "Green";
 }
 
+Write-Host "Installing git..." -ForegroundColor "Green";
 choco install -y "git" --params "/NoAutoCrlf /WindowsTerminal /NoShellIntegration /SChannel";
 Set-Git-Configuration;

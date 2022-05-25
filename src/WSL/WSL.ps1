@@ -182,10 +182,18 @@ function Set-Starship-Configuration-In-Ubuntu {
 Write-Host "Enabling WSL..." -ForegroundColor "Green";
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux;
 Write-Host "Installing Ubuntu 20.04..." -ForegroundColor "Green";
-wsl --install -d Ubuntu-20.04;
-wsl --setdefault Ubuntu-20.04 ;
 
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart;
+dism.exe /online /enable-feature /featurename:HypervisorPlatform /all /norestart;
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux;
+
+wsl --install -d Ubuntu-20.04;
+Start-Sleep -Seconds 5;
+wsl --setdefault Ubuntu-20.04 ;
+Start-Sleep -Seconds 45;
 Move-Ubuntu-To-Drive;
+Write-Host "Ubuntu Install Successful." -ForegroundColor "Green";
+Write-Host "Updating nameservers..." -ForegroundColor "Green";
 wsl echo 'nameserver 8.8.8.8' | sudo tee -a /etc/resolv.conf;
 Update-Ubuntu-Packages-Repository;
 Update-Ubuntu-Packages;
