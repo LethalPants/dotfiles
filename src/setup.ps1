@@ -5,9 +5,9 @@ $GitHubRepositoryUri = "https://github.com/${GitHubRepositoryAuthor}/${GitHubRep
 
 
 $DotfilesFolder = Join-Path -Path $HOME -ChildPath ".dotfiles";
-$DotfilesWorkFolder = Join-Path -Path $DotfilesFolder -ChildPath "${GitHubRepositoryName}-master" | Join-Path -ChildPath "src";
+$DotfilesWorkFolder = Join-Path -Path $DotfilesFolder -ChildPath "${GitHubRepositoryName}-new-dotfiles" | Join-Path -ChildPath "src";
 $DotfilesHelpersFolder = Join-Path -Path $DotfilesWorkFolder -ChildPath "helpers";
-$DotfilesConfigFile = Join-Path -Path $DotfilesFolder -ChildPath "${GitHubRepositoryName}-master" | Join-Path -ChildPath "config.json";
+$DotfilesConfigFile = Join-Path -Path $DotfilesFolder -ChildPath "${GitHubRepositoryName}-new-dotfiles" | Join-Path -ChildPath "config.json";
 
 
 Write-Host "Running dotfiles setup..." -ForegroundColor "Yellow";
