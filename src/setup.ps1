@@ -34,12 +34,6 @@ if (-not (Get-PSRepository-Trusted-Status -PSRepositoryName "PSGallery")) {
   Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted;
 }
 
-if (-not (Get-Module-Installation-Status -ModuleName "PackageManagement" -ModuleMinimumVersion "1.4.6")) {
-  Write-Host "Updating PackageManagement module..." -ForegroundColor "Green";
-  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12;
-  Install-Module -Name "PackageManagement" -Force -MinimumVersion "1.4.6" -Scope "CurrentUser" -AllowClobber -Repository "PSGallery";
-}
-
 # Register the script to start after reboot
 Register-DotfilesScript-As-RunOnce;
 

@@ -1,5 +1,6 @@
 function Move-Ubuntu-To-Drive {
   if ($Config.MoveWSL -eq "Y") {
+    Write-Host "Moving WSL to disk..." -ForegroundColor "Green";
     Invoke-Expression (Invoke-RestMethod -Uri "https://raw.githubusercontent.com/pxlrbt/move-wsl/master/move-wsl.ps1");
   }
 }
@@ -178,9 +179,9 @@ function Set-Starship-Configuration-In-Ubuntu {
   wsl export STARSHIP_CONFIG=~/.config/starship.toml
 }
 
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart;
+Write-Host "Enabling WSL..." -ForegroundColor "Green";
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux;
-wsl --set-default-version 2;
+Write-Host "Installing Ubuntu 20.04..." -ForegroundColor "Green";
 wsl --install -d Ubuntu-20.04;
 wsl --setdefault Ubuntu-20.04 ;
 
