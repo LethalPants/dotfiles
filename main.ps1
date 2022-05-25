@@ -6,8 +6,8 @@ $GitHubRepositoryName = "dotfiles";
 $GitHubRepositoryUri = "https://github.com/${GitHubRepositoryAuthor}/${GitHubRepositoryName}/archive/refs/heads/new-dotfiles.zip";
 
 $DotfilesFolder = Join-Path -Path $HOME -ChildPath ".dotfiles";
-$ZipRepositoryFile = Join-Path -Path $DotfilesFolder -ChildPath "dotfiles-master.zip";
-$DotfilesWorkFolder = Join-Path -Path $DotfilesFolder -ChildPath "dotfiles-master" | Join-Path -ChildPath "src";
+$ZipRepositoryFile = Join-Path -Path $DotfilesFolder -ChildPath "dotfiles-new-dotfiles.zip";
+$DotfilesWorkFolder = Join-Path -Path $DotfilesFolder -ChildPath "dotfiles-new-dotfiles" | Join-Path -ChildPath "src";
 
 $DownloadResult = $FALSE;
 
