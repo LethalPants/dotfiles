@@ -4,7 +4,7 @@ function Set-Vim-Configuration {
   $VimrcPath = Join-Path -Path $HOME -ChildPath ".vimrc";
 
 
-  Write-Host "Copying final Vim configuration file:" -ForegroundColor "Green";
+  Write-Host "Copying final Vim configuration file..." -ForegroundColor "Green";
   Copy-Item $MainVimrcPath -Destination $VimrcPath;
 
   (Get-Content -path $VimrcPath) -replace "__VIMRC_LOCAL__", "~/vimfiles/local_init.vim" | Set-Content -Path $VimrcPath;

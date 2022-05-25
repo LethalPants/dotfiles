@@ -13,17 +13,17 @@ $DownloadResult = $FALSE;
 
 # Request custom values
 $ComputerName = Read-Host -Prompt "Input the new computer name here";
-$GitUserName =  Read-Host -Prompt "Input your Git user name here - ";
-$GitUserEmail = Read-Host -Prompt "Input your Git user email here - ";
-$MoveWSL = Read-Host -Prompt "Would you like to move WSL to another drive (Y/N) - ";
+$GitUserName = Read-Host -Prompt "Input your Git user name here";
+$GitUserEmail = Read-Host -Prompt "Input your Git user email here ";
+$MoveWSL = Read-Host -Prompt "Would you like to move WSL to another drive (y/[N]) ";
 
-if(-not ($MoveWSL -eq 'Y' -OR $MoveWSL -eq 'N' -OR $MoveWSL -eq 'y' -OR $MoveWSL -eq 'n')) {
+if (-not ($MoveWSL -eq 'Y' -OR $MoveWSL -eq 'N' -OR $MoveWSL -eq 'y' -OR $MoveWSL -eq 'n')) {
   $MoveWSL = 'N';
 }
 
 $ValidDisks = Get-PSDrive -PSProvider "FileSystem" | Select-Object -ExpandProperty "Root";
 do {
-  Write-Host "Choose the location of your development workspace:" -ForegroundColor "Green";
+  Write-Host "Choose the location of your development workspace:\n" -ForegroundColor "Green";
   Write-Host $ValidDisks -ForegroundColor "Green";
   $WorkspaceDisk = Read-Host -Prompt "Please choose one of the available disks";
 }

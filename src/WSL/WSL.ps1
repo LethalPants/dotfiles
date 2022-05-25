@@ -1,16 +1,16 @@
 function Move-Ubuntu-To-Drive {
-  if(-not($Config.MoveWSL -eq "Y")){
-  Invoke-Expression (Invoke-RestMethod -Uri "https://raw.githubusercontent.com/pxlrbt/move-wsl/master/move-wsl.ps1");
+  if ($Config.MoveWSL -eq "Y") {
+    Invoke-Expression (Invoke-RestMethod -Uri "https://raw.githubusercontent.com/pxlrbt/move-wsl/master/move-wsl.ps1");
   }
 }
 
 function Update-Ubuntu-Packages-Repository {
-  Write-Host "Updating Ubuntu package repository:" -ForegroundColor "Green";
+  Write-Host "Updating Ubuntu package repository..." -ForegroundColor "Green";
   wsl sudo apt --yes update;
 }
 
 function Update-Ubuntu-Packages {
-  Write-Host "Upgrading Ubuntu packages:" -ForegroundColor "Green";
+  Write-Host "Upgrading Ubuntu packages..." -ForegroundColor "Green";
   wsl sudo apt --yes upgrade;
 }
 
@@ -27,7 +27,7 @@ function Install-Ubuntu-Package {
 }
 
 function Set-Git-Configuration-In-Ubuntu {
-  Write-Host "Configuring Git in Ubuntu:" -ForegroundColor "Green";
+  Write-Host "Configuring Git in Ubuntu..." -ForegroundColor "Green";
   wsl git config --global init.defaultBranch "main";
   wsl git config --global user.name $Config.GitUserName;
   wsl git config --global user.email $Config.GitUserEmail;
@@ -37,7 +37,7 @@ function Set-Git-Configuration-In-Ubuntu {
 }
 
 function Install-VSCode-Extensions-In-WSL {
-  Write-Host "Installing Visual Studio Code extensions in WSL:" -ForegroundColor "Green";
+  Write-Host "Installing Visual Studio Code extensions in WSL..." -ForegroundColor "Green";
 
   wsl code --install-extension "ms-azuretools.vscode-docker";
   wsl code --install-extension "eamodio.gitlens";
@@ -59,33 +59,30 @@ function Install-Volta-In-Ubuntu {
 
   $WslVoltaInstallerPath = wsl wslpath $DotfilesVoltaInstallerPath.Replace("\", "\\");
 
-  Write-Host "Installing Volta in Ubuntu:" -ForegroundColor "Green";
+  Write-Host "Installing Volta in Ubuntu..." -ForegroundColor "Green";
   
   wsl bash $WslVoltaInstallerPath;
 }
 
 function Install-Nodejs-Packages-In-Ubuntu {
-  Write-Host "Installing Node.js LTS in Ubuntu:" -ForegroundColor "Green";
+  Write-Host "Installing Node.js LTS in Ubuntu..." -ForegroundColor "Green";
   wsl ~/.volta/bin/volta install node;
   
-  Write-Host "Installing NPM in Ubuntu:" -ForegroundColor "Green";
+  Write-Host "Installing NPM in Ubuntu..." -ForegroundColor "Green";
   wsl ~/.volta/bin/volta install npm;
   
-  Write-Host "Installing Yarn in Ubuntu:" -ForegroundColor "Green";
+  Write-Host "Installing Yarn in Ubuntu..." -ForegroundColor "Green";
   wsl ~/.volta/bin/volta install yarn;
   
-  Write-Host "Installing TypeScript in Ubuntu:" -ForegroundColor "Green";
+  Write-Host "Installing TypeScript in Ubuntu..." -ForegroundColor "Green";
   wsl ~/.volta/bin/volta install typescript;
   
-  Write-Host "Installing Yarn-Upgrade-All in Ubuntu:" -ForegroundColor "Green";
+  Write-Host "Installing Yarn-Upgrade-All in Ubuntu..." -ForegroundColor "Green";
   wsl ~/.volta/bin/volta install yarn-upgrade-all;
-  
-  Write-Host "Installing NestJS CLI in Ubuntu:" -ForegroundColor "Green";
-  wsl ~/.volta/bin/volta install @nestjs/cli;
 }
 
 function Install-Golang-In-Ubuntu {
-  Write-Host "Installing Golang in Ubuntu:" -ForegroundColor "Green";
+  Write-Host "Installing Golang in Ubuntu..." -ForegroundColor "Green";
   wsl sudo apt install --yes --no-install-recommends golang-go;
 }
 
@@ -94,7 +91,7 @@ function Copy-Vimrc-In-Ubuntu {
   $DotfilesFinalVimrcPath = Join-Path -Path $DotfilesWorkFolder -ChildPath "Vim" | Join-Path -ChildPath "main.vimrc";
   $WslVimrcPath = wsl wslpath $DotfilesFinalVimrcPath.Replace("\", "\\");
 
-  Write-Host "Copying Vim configuration file in Ubuntu:" -ForegroundColor "Green";
+  Write-Host "Copying Vim configuration file in Ubuntu..." -ForegroundColor "Green";
 
   wsl cp -R $WslVimrcPath ~/.vimrc;
 
@@ -114,7 +111,7 @@ function Install-OhMyZsh-In-Ubuntu {
 
   $WslOhMyZshInstallerPath = wsl wslpath $DotfilesOhMyZshInstallerPath.Replace("\", "\\");
   
-  Write-Host "Installing Oh My Zsh in Ubuntu:" -ForegroundColor "Green";
+  Write-Host "Installing Oh My Zsh in Ubuntu..." -ForegroundColor "Green";
   
   wsl bash $WslOhMyZshInstallerPath --unattended;
 }
@@ -129,20 +126,21 @@ function Install-Zsh-Autosuggestions {
   wsl git clone https://github.com/zsh-users/zsh-autosuggestions $ZshAutosuggestionsWslPath;
 }
 
-function Install-OhMyZsh-Theme-In-Ubuntu {
-  $DotfilesOhMyZshThemePath = Join-Path -Path $DotfilesWorkFolder -ChildPath "WSL" | Join-Path -ChildPath "paradox.zsh-theme";
-  $WslOhMyZshThemePath = wsl wslpath $DotfilesOhMyZshThemePath.Replace("\", "\\");
+function Install-Zsh-SyntaxHighlighting {
+  $ZshSyntaxHighlightingWslPath = "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting";
 
-  Write-Host "Installing Paradox theme for Oh My Zsh in Ubuntu:" -ForegroundColor "Green";
+  Write-Host "Installing Zsh-SyntaxHighlighting in Ubuntu..." -ForegroundColor "Green";
 
-  wsl cp -R $WslOhMyZshThemePath ~/.oh-my-zsh/custom/themes;
+  wsl rm -rf $ZshSyntaxHighlightingWslPath;
+
+  wsl git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZshSyntaxHighlightingWslPath;
 }
 
 function Install-OhMyZsh-Functions-In-Ubuntu {
   $DotfilesOhMyZshFunctionsPath = Join-Path -Path $DotfilesWorkFolder -ChildPath "WSL" | Join-Path -ChildPath "custom-actions.sh";
   $WslOhMyZshFunctionsPath = wsl wslpath $DotfilesOhMyZshFunctionsPath.Replace("\", "\\");
 
-  Write-Host "Installing custom alias and functions for Oh My Zsh in Ubuntu:" -ForegroundColor "Green";
+  Write-Host "Installing custom alias and functions for Oh My Zsh in Ubuntu..." -ForegroundColor "Green";
 
   wsl mkdir -p ~/.oh-my-zsh/custom/functions;
 
@@ -153,22 +151,41 @@ function Set-OhMyZsh-Configuration-In-Ubuntu {
   $DotfilesZshrcPath = Join-Path -Path $DotfilesWorkFolder -ChildPath "WSL" | Join-Path -ChildPath ".zshrc";
   $WslZshrcPath = wsl wslpath $DotfilesZshrcPath.Replace("\", "\\");
 
-  Write-Host "Configuring Zsh in Ubuntu:" -ForegroundColor "Green";
+  Write-Host "Configuring Zsh in Ubuntu..." -ForegroundColor "Green";
   
   wsl cp -R $WslZshrcPath ~;
 }
 
 function Set-Zsh-As-Default-In-Ubuntu {
-  Write-Host "Changing default shell to Zsh in Ubuntu:" -ForegroundColor "Green";
+  Write-Host "Changing default shell to Zsh in Ubuntu..." -ForegroundColor "Green";
 
   $WslZshPath = wsl which zsh;
   wsl sudo chsh -s $WslZshPath;
-
-  # Change just for a user: sudo chsh -s $WslZshPath $USER_NAME;
+}
+function Install-Starship-In-Ubuntu {
+  Write-Host "Installing the startship prompt..." -ForegroundColor "Green";
+  wsl sudo curl -sS https://starship.rs/install.sh | sh
 }
 
-wsl --install -d Ubuntu-20.04
-Move-Ubuntu-To-Drive
+function Set-Starship-Configuration-In-Ubuntu {
+  $DotfilesOhMyZshFunctionsPath = Join-Path -Path $DotfilesWorkFolder -ChildPath "WSL" | Join-Path -ChildPath "startship.toml";
+  $WslOhMyZshFunctionsPath = wsl wslpath $DotfilesOhMyZshFunctionsPath.Replace("\", "\\");
+
+  Write-Host "Installing starship prompt configuration..." -ForegroundColor "Green";
+
+  wsl mkdir -p ~/.config;
+  wsl cp -R $WslOhMyZshFunctionsPath ~/.config;
+  wsl export STARSHIP_CONFIG=~/.config/starship.toml
+}
+
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart;
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux;
+wsl --set-default-version 2;
+wsl --install -d Ubuntu-20.04;
+wsl --setdefault Ubuntu-20.04 ;
+
+Move-Ubuntu-To-Drive;
+wsl echo 'nameserver 8.8.8.8' | sudo tee -a /etc/resolv.conf;
 Update-Ubuntu-Packages-Repository;
 Update-Ubuntu-Packages;
 
@@ -192,7 +209,10 @@ Install-Golang-In-Ubuntu;
 Copy-Vimrc-In-Ubuntu;
 
 Install-OhMyZsh-In-Ubuntu;
-Install-OhMyZsh-Theme-In-Ubuntu;
 Install-OhMyZsh-Functions-In-Ubuntu;
+Install-Zsh-Autosuggestions
+Install-Zsh-SyntaxHighlighting
 Set-OhMyZsh-Configuration-In-Ubuntu;
 Set-Zsh-As-Default-In-Ubuntu;
+Install-Starship-In-Ubuntu;
+Set-Starship-Configuration-In-Ubuntu

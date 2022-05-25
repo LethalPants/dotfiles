@@ -50,7 +50,7 @@ function Update-System {
   wsl sudo apt --yes update;
   wsl sudo apt --yes upgrade;
 };
-Set-Alias -Name "upsys" -Value "Update-System";
+Set-Alias -Name "updsys" -Value "Update-System";
 
 ################################################################################
 #                                  Vim Aliases                                 #
@@ -60,3 +60,7 @@ function Invoke-Edit-Vimrc {
   vim ~/.vimrc;
 };
 Set-Alias -Name "editvim" -Value "Invoke-Edit-Vimrc";
+
+
+# Starship Prompt
+Invoke-Expression (&starship init powershell)

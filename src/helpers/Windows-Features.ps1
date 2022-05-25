@@ -27,7 +27,7 @@ function Disable-WindowsFeature {
   )
 
   if (Get-WindowsFeature-Installation-Status $FeatureKey) {
-    Write-Host "Disabling" $FeatureName ":" -ForegroundColor "Green";
+    Write-Host "Disabling" $FeatureName "..." -ForegroundColor "Green";
     Disable-WindowsOptionalFeature -FeatureName $FeatureKey -Online -NoRestart;
   }
   else {
@@ -48,7 +48,7 @@ function Enable-WindowsFeature {
   )
 
   if (-not (Get-WindowsFeature-Installation-Status $FeatureKey)) {
-    Write-Host "Enabling" $FeatureName ":" -ForegroundColor "Green";
+    Write-Host "Enabling" $FeatureName "..." -ForegroundColor "Green";
     Enable-WindowsOptionalFeature -FeatureName $FeatureKey -Online -All -NoRestart;
   }
   else {

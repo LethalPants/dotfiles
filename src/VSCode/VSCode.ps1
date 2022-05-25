@@ -3,7 +3,7 @@ function Set-VSCode-Configuration {
   $DotfilesVSCodeSettingsFolder = Join-Path -Path $DotfilesWorkFolder -ChildPath "VSCode";
   
   if (-not (Test-Path -Path $VSCodeSettingsPath)) {
-    Write-Host "Configuring Visual Studio Code:" -ForegroundColor "Green";
+    Write-Host "Configuring Visual Studio Code..." -ForegroundColor "Green";
     New-Item $VSCodeSettingsPath -ItemType directory;
   }
 

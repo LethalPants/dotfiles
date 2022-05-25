@@ -10,10 +10,10 @@ $DotfilesHelpersFolder = Join-Path -Path $DotfilesWorkFolder -ChildPath "helpers
 $DotfilesConfigFile = Join-Path -Path $DotfilesFolder -ChildPath "${GitHubRepositoryName}-master" | Join-Path -ChildPath "config.json";
 
 
-Write-Host "Running dotfiles setup." -ForegroundColor "Yellow";
+Write-Host "Running dotfiles setup..." -ForegroundColor "Yellow";
 Write-Host "Please don't use your device while the script is running..." -ForegroundColor "Yellow";
 
-Write-Host "Loading helpers:" -ForegroundColor "Green";
+Write-Host "Loading helpers..." -ForegroundColor "Green";
 $DotfilesHelpers = Get-ChildItem -Path "${DotfilesHelpersFolder}\*" -Include *.ps1 -Recurse;
 foreach ($DotfilesHelper in $DotfilesHelpers) {
   . $DotfilesHelper;
@@ -30,12 +30,12 @@ Set-PSDrive-HKCR;
 
 # Check is PSGallery is set to trusted, if not set as trusted
 if (-not (Get-PSRepository-Trusted-Status -PSRepositoryName "PSGallery")) {
-  Write-Host "Setting up PSGallery as PowerShell trusted repository:" -ForegroundColor "Green";
+  Write-Host "Setting up PSGallery as PowerShell trusted repository..." -ForegroundColor "Green";
   Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted;
 }
 
 if (-not (Get-Module-Installation-Status -ModuleName "PackageManagement" -ModuleMinimumVersion "1.4.6")) {
-  Write-Host "Updating PackageManagement module:" -ForegroundColor "Green";
+  Write-Host "Updating PackageManagement module..." -ForegroundColor "Green";
   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12;
   Install-Module -Name "PackageManagement" -Force -MinimumVersion "1.4.6" -Scope "CurrentUser" -AllowClobber -Repository "PSGallery";
 }
@@ -59,7 +59,7 @@ Invoke-Expression (Join-Path -Path $DotfilesWorkFolder -ChildPath "Windows" | Jo
 # Unregister script from RunOnce
 Remove-DotfilesScript-From-RunOnce;
 
-Write-Host "Cleaning Dotfiles workspace:" -ForegroundColor "Green";
+Write-Host "Cleaning Dotfiles workspace..." -ForegroundColor "Green";
 Remove-Item $DotfilesFolder -Recurse -Force -ErrorAction SilentlyContinue;
 
 Write-Host "The process has finished." -ForegroundColor "Yellow";

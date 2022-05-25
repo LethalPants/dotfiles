@@ -21,13 +21,13 @@ function Set-Configuration-File {
     [String]
     $WorkspaceDisk,
 
-    [Parameter( Position = 5, Mandatory = $FALSE)]
+    [Parameter( Position = 5, Mandatory = $TRUE)]
     [String]
     $MoveWSL
   )
 
   if (-not (Test-Path -Path $DotfilesConfigFile)) {
-    Write-Host "Creating config.json file:" -ForegroundColor "Green";
+    Write-Host "Creating config.json file..." -ForegroundColor "Green";
     $ConfigJsonBody = [PSCustomObject]@{
       ComputerName  = $ComputerName
       GitUserName   = $GitUserName
@@ -53,13 +53,13 @@ function Get-Configuration-File {
   $Config = @{};
   $ConfigContent = Get-Content $DotfilesConfigFile | ConvertFrom-Json;
 
-  Write-Host "Reading config.json file:" -ForegroundColor "Green";
+  Write-Host "Reading config.json file..." -ForegroundColor "Green";
 
   foreach ($Property in $ConfigContent.PSObject.Properties) {
     $Config[$Property.Name] = $Property.Value;
   }
   
-  Write-Host "config.json contains:" -ForegroundColor "Green";
+  Write-Host "config.json contains..." -ForegroundColor "Green";
   Write-Host -ForegroundColor "Green" ($Config | Out-String);
 
   return $Config;
