@@ -93,6 +93,6 @@ Set-Git-Configuration-In-Ubuntu;
 Copy-Vimrc-In-Ubuntu;
 Install-OhMyZsh-Functions-In-Ubuntu;
 Set-OhMyZsh-Configuration-In-Ubuntu;
-Set-Zsh-As-Default-In-Ubuntu;
 Set-Starship-Configuration-In-Ubuntu
+Set-Zsh-As-Default-In-Ubuntu;
 wsl --setdefault Ubuntu-20.04;
