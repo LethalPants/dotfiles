@@ -3,7 +3,7 @@
  #>
 $GitHubRepositoryAuthor = "LethalPants";
 $GitHubRepositoryName = "dotfiles";
-$GitHubRepositoryUri = "https://github.com/${GitHubRepositoryAuthor}/${GitHubRepositoryName}/archive/refs/heads/master.zip";
+$GitHubRepositoryUri = "https://github.com/${GitHubRepositoryAuthor}/${GitHubRepositoryName}/archive/refs/heads/new-dotfiles.zip";
 
 $DotfilesFolder = Join-Path -Path $HOME -ChildPath ".dotfiles";
 $ZipRepositoryFile = Join-Path -Path $DotfilesFolder -ChildPath "dotfiles-master.zip";

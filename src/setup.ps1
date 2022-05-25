@@ -1,8 +1,7 @@
 $GitHubRepositoryAuthor = "LethalPants";
-$GitHubRepositoryName = "new-dotfiles";
+$GitHubRepositoryName = "dotfiles";
 
-# $GitHubRepositoryUri = "https://github.com/${GitHubRepositoryAuthor}/${GitHubRepositoryName}/archive/refs/heads/master.zip";
-$GitHubRepositoryUri = "https://github.com/LethalPants/dotfiles/archive/refs/heads/new-dotfiles.zip";
+$GitHubRepositoryUri = "https://github.com/${GitHubRepositoryAuthor}/${GitHubRepositoryName}/archive/refs/heads/master.zip";
 
 
 $DotfilesFolder = Join-Path -Path $HOME -ChildPath ".dotfiles";
