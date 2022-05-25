@@ -3,28 +3,28 @@ DEFAULT="\033[0m"
 printf "${GREEN}Updating nameserver...${DEFAULT}\n"
 echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
 
- apt --yes update &&  apt --yes upgrade
+sudo apt --yes update &&  sudo apt --yes upgrade
 
 printf "${GREEN}Installing Git in Ubuntu...${DEFAULT}\n"
-apt install --yes --no-install-recommends git
+sudo apt install --yes --no-install-recommends git
 
 printf "${GREEN}Installing ZSH in Ubuntu...${DEFAULT}\n"
-apt install --yes --no-install-recommends zsh
+sudo apt install --yes --no-install-recommends zsh
 
 printf "${GREEN}Installing Curl in Ubuntu...${DEFAULT}\n"
-apt install --yes --no-install-recommends curl
+sudo apt install --yes --no-install-recommends curl
 
 printf "${GREEN}Installing Neofetch in Ubuntu...${DEFAULT}\n"
-apt install --yes --no-install-recommends neofetch
+sudo apt install --yes --no-install-recommends neofetch
 
 printf "${GREEN}Installing Vim in Ubuntu...${DEFAULT}\n"
-apt install --yes --no-install-recommends vim
+sudo apt install --yes --no-install-recommends vim
 
 printf "${GREEN}Installing g++ in Ubuntu...${DEFAULT}\n"
-apt install --yes --no-install-recommends g++
+sudo apt install --yes --no-install-recommends g++
 
 printf "${GREEN}Installing gcc in Ubuntu...${DEFAULT}\n"
-apt install --yes --no-install-recommends gcc
+sudo apt install --yes --no-install-recommends gcc
 
 printf "${GREEN}Installing Visual Studio Code extensions in WSL...${DEFAULT}\n"
 
@@ -63,7 +63,7 @@ printf "${GREEN}Installing Yarn-Upgrade-All in WSL...${DEFAULT}\n"
 ~/.volta/bin/volta install yarn-upgrade-all
 
 printf "${GREEN}Installing GoLang in WSL...${DEFAULT}\n"
-apt install --yes --no-install-recommends golang-go
+sudo apt install --yes --no-install-recommends golang-go
 
 printf "${GREEN}Installing OhMyZSH in WSL...${DEFAULT}\n"
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
