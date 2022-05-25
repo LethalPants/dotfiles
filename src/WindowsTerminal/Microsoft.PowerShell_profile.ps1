@@ -5,25 +5,6 @@
 Clear-Host;
 
 ################################################################################
-#                                  Oh my Posh!                                 #
-################################################################################
-
-Import-Module "oh-my-posh";
-Import-Module "posh-git";
-Import-Module "Terminal-Icons";
-Set-PoshPrompt -Theme "~/.oh-my-posh-custom-theme.omp.json";
-
-################################################################################
-#                                  Chocolatey                                  #
-################################################################################
-
-# Chocolatey profile
-$ChocolateyProfile = Join-Path -Path $env:ChocolateyInstall -ChildPath "helpers" | Join-Path -ChildPath "chocolateyProfile.psm1";
-if (Test-Path($ChocolateyProfile)) {
-  Import-Module $ChocolateyProfile;
-};
-
-################################################################################
 #                        WindowsTerminal Profile Aliases                       #
 ################################################################################
 

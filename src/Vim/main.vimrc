@@ -45,8 +45,6 @@ set shortmess+=c
 syntax on
 
 set ruler
-set number " Show row numbers
-set rnu " Show relative numbers on rows
 set numberwidth=1 " Size of row numbers
 
 let no_buffers_menu=1
@@ -54,16 +52,12 @@ let no_buffers_menu=1
 set mouse=a " Enables the mouse usage
 set mousemodel=popup
 
-set cursorline
-set t_Co=256
 
 
 "" Status bar
 set laststatus=2
 
 "" Use modeline overrides
-set modeline
-set modelines=10
 
 set title
 set titleold="Terminal"
@@ -80,13 +74,9 @@ nnoremap N Nzzzv
 let g:light_theme = 0
 
 if (g:light_theme)
-  set background=light
-  let g:gruvbox_contrast_light='hard'
-  colorscheme gruvbox
+  colorscheme morning
 else
-  set background=dark
-  let g:gruvbox_contrast_dark='hard'
-  colorscheme gruvbox
+  colorscheme elflord
 endif
 
 

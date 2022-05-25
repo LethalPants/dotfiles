@@ -44,7 +44,7 @@
   ],
   "copyFormatting": "none",
   "copyOnSelect": false,
-  "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+  "defaultProfile": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
   "focusFollowMouse": true,
   "profiles": {
     "defaults": {
@@ -61,10 +61,14 @@
     },
     "list": [
       {
-        "commandline": "powershell.exe -nologo",
-        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "altGrAliasing": true,
+        "closeOnExit": "graceful",
+        "commandline": "powershell.exe",
+        "guid": "{7e90124b-452b-4f09-a8b2-fb8c8deb04c1}",
         "hidden": false,
-        "source": "Windows.Terminal.PowershellCore",
+        "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
+        "name": "Windows PowerShell",
+        "padding": "8, 8, 8, 8",
         "startingDirectory": __STARTING_WINDOWS_DIRECTORY__
       },
       {
