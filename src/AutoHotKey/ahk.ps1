@@ -8,5 +8,4 @@ function Copy-Startup-File {
 }
  
 Write-Host "Installing AutoHotkey..." -ForegroundColor "Green";
-choco install -y "autohotkey.install" --params "/NoAutoCrlf /WindowsTerminal /NoShellIntegration /SChannel";
 Copy-Startup-File

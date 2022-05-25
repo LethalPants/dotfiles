@@ -33,37 +33,6 @@ function Copy-Vimrc-In-Ubuntu {
   ((Get-Content $WindowsVimrcPath) -join "`n") + "`n" | Set-Content -NoNewline $WindowsVimrcPath;
 }
 
-function Install-OhMyZsh-In-Ubuntu {
-  $DotfilesOhMyZshInstallerPath = Join-Path -Path $DotfilesWorkFolder -ChildPath "WSL" | Join-Path -ChildPath "ohmyzsh.sh";
-
-  Invoke-WebRequest -o $DotfilesOhMyZshInstallerPath https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh;
-
-  $WslOhMyZshInstallerPath = wsl wslpath $DotfilesOhMyZshInstallerPath.Replace("\", "\\");
-  
-  Write-Host "Installing Oh My Zsh in Ubuntu..." -ForegroundColor "Green";
-  
-  wsl bash $WslOhMyZshInstallerPath --unattended;
-}
-
-function Install-Zsh-Autosuggestions {
-  $ZshAutosuggestionsWslPath = "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions";
-
-  Write-Host "Installing Zsh-Autosuggestions in Ubuntu:" -ForegroundColor "Green";
-
-  wsl rm -rf $ZshAutosuggestionsWslPath;
-
-  wsl git clone https://github.com/zsh-users/zsh-autosuggestions $ZshAutosuggestionsWslPath;
-}
-
-function Install-Zsh-SyntaxHighlighting {
-  $ZshSyntaxHighlightingWslPath = "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting";
-
-  Write-Host "Installing Zsh-SyntaxHighlighting in Ubuntu..." -ForegroundColor "Green";
-
-  wsl rm -rf $ZshSyntaxHighlightingWslPath;
-
-  wsl git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZshSyntaxHighlightingWslPath;
-}
 
 function Install-OhMyZsh-Functions-In-Ubuntu {
   $DotfilesOhMyZshFunctionsPath = Join-Path -Path $DotfilesWorkFolder -ChildPath "WSL" | Join-Path -ChildPath "custom-actions.sh";
@@ -122,6 +91,7 @@ Write-Host "Ubuntu Install Successful." -ForegroundColor "Green";
 Invoke-Install-File;
 Set-Git-Configuration-In-Ubuntu;
 Copy-Vimrc-In-Ubuntu;
+Install-OhMyZsh-Functions-In-Ubuntu;
 Set-OhMyZsh-Configuration-In-Ubuntu;
 Set-Zsh-As-Default-In-Ubuntu;
 Set-Starship-Configuration-In-Ubuntu
