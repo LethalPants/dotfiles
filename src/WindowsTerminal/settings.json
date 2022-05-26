@@ -52,10 +52,7 @@
       "cursorShape": "vintage",
       "bellStyle": "none",
       "experimental.retroTerminalEffect": false,
-      "font": 
-      {
-          "face": "MesloLGS NF"
-      },
+      "fontFace": "CaskaydiaCove NF",
       "snapOnInput": true,
       "useAcrylic": false
     },

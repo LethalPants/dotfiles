@@ -1,1 +1,1 @@
-choco install -y "nerdfont-hack";
+choco install -y 'cascadia-code-nerd-font';

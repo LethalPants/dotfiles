@@ -8,4 +8,7 @@ function Set-Git-Configuration {
 
 Write-Host "Installing git..." -ForegroundColor "Green";
 choco install -y "git" --params "/NoAutoCrlf /WindowsTerminal /NoShellIntegration /SChannel";
+refreshenv;
+Sleep-Start -Seconds 10;
+refreshenv;
 Set-Git-Configuration;

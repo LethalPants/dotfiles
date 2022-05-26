@@ -84,7 +84,7 @@ function Invoke-Git-Commit-Message {
 
   git commit -m $message;
 };
-Set-Alias -Name "gcm" -Value "Invoke-Git-Commit-Message";
+Set-Alias -Name "gcmsg" -Value "Invoke-Git-Commit-Message";
 
 function Invoke-Git-Push-Origin {
   param($branch);

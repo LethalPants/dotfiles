@@ -13,6 +13,8 @@ function Set-VSCode-Configuration {
 choco install -y "vscode" --params "/NoDesktopIcon /NoQuicklaunchIcon";
 Set-VSCode-Configuration;
 refreshenv;
+Sleep-Start -Seconds 10;
+refreshenv;
 
 code --install-extension "ms-vscode.atom-keybindings";
 code --install-extension "ms-vscode-remote.remote-wsl";

@@ -72,10 +72,13 @@ Write-Host "Installing Ubuntu 20.04..." -ForegroundColor "Green";
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart;
 dism.exe /online /enable-feature /featurename:HypervisorPlatform /all /norestart;
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux;
+wsl --update;
+wsl --shutdown;
 
 wsl --install -d Ubuntu-20.04;
 Write-Host "Ubuntu Install Successful." -ForegroundColor "Green";
 
+Start-Sleep -Seconds 50;
 Invoke-Install-File;
 Set-Git-Configuration-In-Ubuntu;
 Copy-Vimrc-In-Ubuntu;

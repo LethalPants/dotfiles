@@ -3,7 +3,7 @@
   "editor.autoIndent": "full",
   "editor.cursorSmoothCaretAnimation": true,
   "editor.cursorStyle": "block",
-  "editor.fontFamily": "'Dank Mono', 'Hack Nerd Font Mono'",
+  "editor.fontFamily": "'Dank Mono', 'CaskaydiaCove NF'",
   "editor.fontWeight": "500",
   "editor.fontLigatures": true,
   "editor.fontSize": 16,
@@ -12,7 +12,7 @@
   "editor.formatOnType": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
-	"editor.letterSpacing": 0.5,
+  "editor.letterSpacing": 0.5,
   "editor.lineHeight": 25,
   "editor.suggestSelection": "first",
   "editor.tabCompletion": "on",
@@ -42,9 +42,8 @@
   // Workbench settings
   "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "right",
-	"workbench.statusBar.visible": true,
-	"workbench.tree.indent": 2,
-	"workbench.colorTheme": "GitHub Light",
+  "workbench.statusBar.visible": true,
+  "workbench.colorTheme": "GitHub Light",
 
   // Other settings
   "diffEditor.ignoreTrimWhitespace": true,
@@ -53,23 +52,23 @@
   "zenMode.centerLayout": false,
 
   "vim.autoindent": true,
-	"vim.cursorStylePerMode.insert": "underline",
-	"vim.cursorStylePerMode.normal": "block",
-	"vim.cursorStylePerMode.replace": "block",
-	"vim.cursorStylePerMode.visual": "block",
-	"vim.cursorStylePerMode.visualblock": "block",
-	"vim.cursorStylePerMode.visualline": "block",
-	"vim.easymotion": true,
-	"vim.easymotionDimBackground": false,
-	"vim.incsearch": true,
-	"vim.insertModeKeyBindings": [
-		{
-			"before": ["j", "j"],
-			"after": ["<Esc>"]
-		}
-	],
-	"vim.useCtrlKeys": true,
-	"vim.useSystemClipboard": true,
+  "vim.cursorStylePerMode.insert": "underline",
+  "vim.cursorStylePerMode.normal": "block",
+  "vim.cursorStylePerMode.replace": "block",
+  "vim.cursorStylePerMode.visual": "block",
+  "vim.cursorStylePerMode.visualblock": "block",
+  "vim.cursorStylePerMode.visualline": "block",
+  "vim.easymotion": true,
+  "vim.easymotionDimBackground": false,
+  "vim.incsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.useCtrlKeys": false,
+  "vim.useSystemClipboard": true,
   "atomKeymap.promptV3Features": true,
 
   // Language specific settings
