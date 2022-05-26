@@ -74,7 +74,6 @@ dism.exe /online /enable-feature /featurename:HypervisorPlatform /all /norestart
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux;
 
 wsl --install -d Ubuntu-20.04;
-Start-Sleep -Seconds 50;
 Write-Host "Ubuntu Install Successful." -ForegroundColor "Green";
 
 Invoke-Install-File;

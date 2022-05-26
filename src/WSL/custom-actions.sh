@@ -20,7 +20,7 @@ mkcd() {
   mkdir -p -v "$1"
   cd "$1"
 }
-alias a='code .'
+alias a="code ."
 
 ################################################################################
 #                          System Maintenance Aliases                          #
@@ -31,13 +31,13 @@ updsys() {
   sudo apt --yes update;
   sudo apt --yes upgrade;
 }
-alias drop_cache="sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'\"" 
+alias drop_cache="sudo sh -c \"echo 3 >"/proc/sys/vm/drop_caches" && swapoff -a && swapon -a && printf "\n%s\n" "Ram-cache and Swap Cleared"\"" 
 ################################################################################
 #                         Environment Variables Aliases                        #
 ################################################################################
 
 ## List the content of PATH environment variables
-alias pathl="echo '$PATH' | tr ':' '\n' | nl"
+alias pathl="echo "$PATH" | tr ":" "\n" | nl"
 
 ################################################################################
 #                                  Git Aliases                                 #
@@ -57,18 +57,19 @@ alias gsrlc="git reset --soft HEAD^1"
 ## Git hard reset last commit
 alias ghrlc="git reset --hard HEAD~1"
 
-alias ga='git add'
-alias gaa='git add .'
-alias gaaa='git add -A'
-alias gc='git commit'
-alias gcm='git commit -m'
-alias gd='git diff'
-alias gi='git init'
-alias gl='git log'
-alias gp='git pull'
-alias gpsh='git push'
-alias gss='git status -s'
-alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
+alias ga="git add"
+alias gaa="git add ."
+alias gaaa="git add -A"
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gcb="git checkout -b"
+alias gd="git diff"
+alias gi="git init"
+alias gl="git log"
+alias gp="git pull"
+alias gpsh="git push"
+alias gss="git status -s"
+alias glog="git log --color --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --branches"
 
 ################################################################################
 #                                  Vim Aliases                                 #
@@ -144,18 +145,6 @@ alias yua="yarn-upgrade-all"
 
 ## Remove Yarn package
 alias yr="yarn remove"
-
-################################################################################
-#                                NestJS Aliases                                #
-################################################################################
-
-## Create a new project with NestJS
-nestnew() {
-  nest new "$1" --package-manager 'yarn' --skip-install --language 'TS'
-  cd "$1"
-  gaa
-  gcmsg "Initial commit"
-}
 
 ################################################################################
 #                                  Go Aliases                                  #

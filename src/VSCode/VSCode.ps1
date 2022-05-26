@@ -10,7 +10,7 @@ function Set-VSCode-Configuration {
   Get-ChildItem -Path "${DotfilesVSCodeSettingsFolder}\*" -Include "*.json" -Recurse | Copy-Item -Destination $VSCodeSettingsPath;
 }
 
-choco install -y "vscode" --params "/NoDesktopIcon /NoQuicklaunchIcon /NoContextMenuFiles /NoContextMenuFolders";
+choco install -y "vscode" --params "/NoDesktopIcon /NoQuicklaunchIcon";
 Set-VSCode-Configuration;
 refreshenv;
 
