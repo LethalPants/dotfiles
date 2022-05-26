@@ -14,17 +14,16 @@ choco install -y "vscode" --params "/NoDesktopIcon /NoQuicklaunchIcon";
 
 refreshenv;
 
-try {
-  if (Get-Command 'code') {
-    Write-Host "VSCode installed sucessfully" -ForegroundColor "Green";
-  }
+
+if (Get-Command 'code' -errorAction SilentlyContinue) {
+  Write-Host "VSCode installed sucessfully" -ForegroundColor "Green";
 }
-catch {
+else {
   $VscodePath = Join-Path -Path $env:ProgramFiles -ChildPath "Microsoft VS Code" | Join-Path -ChildPath "bin";
   $oldpath = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
   $newpath = "$oldpath;$VscodePath"
   Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newpath
-  if (Get-Command 'code') {
+  if (Get-Command 'code' -errorAction SilentlyContinue) {
     Write-Host "VSCode installed sucessfully" -ForegroundColor "Green";
   } 
 }
