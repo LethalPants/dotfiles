@@ -11,9 +11,25 @@ function Set-VSCode-Configuration {
 }
 
 choco install -y "vscode" --params "/NoDesktopIcon /NoQuicklaunchIcon";
-Set-VSCode-Configuration;
+
 refreshenv;
-Sleep-Start -Seconds 10;
+
+try {
+  if (Get-Command 'code') {
+    Write-Host "VSCode installed sucessfully" -ForegroundColor "Green";
+  }
+}
+catch {
+  $VscodePath = Join-Path -Path $env:ProgramFiles -ChildPath "Microsoft VS Code" | Join-Path -ChildPath "bin";
+  $oldpath = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
+  $newpath = "$oldpath;$VscodePath"
+  Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newpath
+  if (Get-Command 'code') {
+    Write-Host "VSCode installed sucessfully" -ForegroundColor "Green";
+  } 
+}
+
+Set-VSCode-Configuration;
 refreshenv;
 
 code --install-extension "ms-vscode.atom-keybindings";
