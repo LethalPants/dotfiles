@@ -76,3 +76,4 @@ printf "${GREEN}Installing Zsh-Autosuggestions in WSL...${DEFAULT}\n"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 curl -sS https://starship.rs/install.sh | sh
+chsh -s $(which zsh)

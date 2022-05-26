@@ -54,17 +54,6 @@ function Set-OhMyZsh-Configuration-In-Ubuntu {
   wsl cp -R $WslZshrcPath ~;
 }
 
-function Set-Zsh-As-Default-In-Ubuntu {
-  Write-Host "Changing default shell to Zsh in Ubuntu..." -ForegroundColor "Green";
-
-  $WslZshPath = wsl which zsh;
-  wsl sudo chsh -s $WslZshPath;
-}
-function Install-Starship-In-Ubuntu {
-  Write-Host "Installing the startship prompt..." -ForegroundColor "Green";
-  wsl sudo curl -sS https://starship.rs/install.sh | sh
-}
-
 function Set-Starship-Configuration-In-Ubuntu {
   $DotfilesOhMyZshFunctionsPath = Join-Path -Path $DotfilesWorkFolder -ChildPath "WSL" | Join-Path -ChildPath "startship.toml";
   $WslOhMyZshFunctionsPath = wsl wslpath $DotfilesOhMyZshFunctionsPath.Replace("\", "\\");
@@ -94,5 +83,4 @@ Copy-Vimrc-In-Ubuntu;
 Install-OhMyZsh-Functions-In-Ubuntu;
 Set-OhMyZsh-Configuration-In-Ubuntu;
 Set-Starship-Configuration-In-Ubuntu
-Set-Zsh-As-Default-In-Ubuntu;
 wsl --setdefault Ubuntu-20.04;
