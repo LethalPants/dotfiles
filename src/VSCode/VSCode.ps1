@@ -19,17 +19,18 @@ if (Get-Command 'code' -errorAction SilentlyContinue) {
   Write-Host "VSCode installed sucessfully" -ForegroundColor "Green";
 }
 else {
-  $VscodePath = Join-Path -Path $env:ProgramFiles -ChildPath "Microsoft VS Code" | Join-Path -ChildPath "bin";
-  $oldpath = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
-  $newpath = "$oldpath;$VscodePath"
-  Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newpath
-  if (Get-Command 'code' -errorAction SilentlyContinue) {
-    Write-Host "VSCode installed sucessfully" -ForegroundColor "Green";
-  } 
+ $count = 0;
+ do {
+    Write-Host "Updating Path variable" -ForegroundColor "Yellow";
+    $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User");
+    $count += 1;
+  } while(-not (Get-Command 'code' -errorAction SilentlyContinue) -AND (count -lt 10));
+  Write-Host $env:PATH;
+  Write-Host "VSCode installed sucessfully" -ForegroundColor "Green";
 }
-
-Set-VSCode-Configuration;
 refreshenv;
+Set-VSCode-Configuration;
+
 
 code --install-extension "ms-vscode.atom-keybindings";
 code --install-extension "ms-vscode-remote.remote-wsl";
