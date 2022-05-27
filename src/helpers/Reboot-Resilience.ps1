@@ -4,7 +4,7 @@ function Register-DotfilesScript-As-RunOnce() {
   $DotfilesMainScriptPath = Join-Path -Path $DotfilesWorkFolder -ChildPath "setup.ps1";
 
   if (-not (Test-PathRegistryKey $RegPath $ScriptName)) {
-    New-ItemProperty -Path $RegPath -Name $ScriptName -PropertyType String -Value "powershell ${DotfilesMainScriptPath}";
+    Set-ItemProperty -path $RegPath  $ScriptName -Value "powershell -executionPolicy Unrestricted -File ${DotfilesMainScriptPath}";
   }
 }
 
