@@ -35,7 +35,6 @@ Set-VSCode-Configuration;
 code --install-extension "ms-vscode.atom-keybindings";
 code --install-extension "ms-vscode-remote.remote-wsl";
 code --install-extension "ms-vscode-remote.remote-containers";
-code --install-extension "ms-vscode.powershell";
 code --install-extension "ms-azuretools.vscode-docker";
 code --install-extension "eamodio.gitlens";
 code --install-extension "mhutchie.git-graph";
