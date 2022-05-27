@@ -15,16 +15,15 @@ if (Get-Command 'git' -errorAction SilentlyContinue) {
   Write-Host "Git installed sucessfully" -ForegroundColor "Green";
 }
 else {
-  Write-Host "Error";
-  $GitPath = Join-Path -Path $env:ProgramFiles -ChildPath "Git" | Join-Path -ChildPath "cmd";
-  $oldpath = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
-  $newpath = "$oldpath;$GitPath"
-  Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newpath
-  $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User") 
-  Write-Host $env:Path
-  if (Get-Command 'git' -errorAction SilentlyContinue) {
-    Write-Host "Git installed sucessfully" -ForegroundColor "Green";
-  } 
+ $count = 0;
+ do {
+    Write-Host "Updating Path variable" -ForegroundColor "Yellow";
+    $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User");
+    $count += 1;
+  } while(-not (Get-Command 'git' -errorAction SilentlyContinue) -AND (count -lt 10));
+  Write-Host $env:PATH;
+  Write-Host "Git installed sucessfully" -ForegroundColor "Green";
 }
+refreshenv;
 
 Set-Git-Configuration;
