@@ -37,7 +37,7 @@ alias drop_cache="sudo sh -c \"echo 3 >"/proc/sys/vm/drop_caches" && swapoff -a 
 ################################################################################
 
 ## List the content of PATH environment variables
-alias pathl="echo "$PATH" | tr ":" "\n" | nl"
+alias pathl="echo '$PATH' | tr ':' '\n' | nl"
 
 ################################################################################
 #                                  Git Aliases                                 #

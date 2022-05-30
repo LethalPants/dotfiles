@@ -65,5 +65,10 @@ stty stop ""
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
+#GoLang
+export GOPATH="$HOME/golib"
+export PATH="$PATH:$GOPATH"
+export GOPATH="$GOPATH:$HOME/workspace"
+
 #Starship
 eval "$(starship init zsh)"
