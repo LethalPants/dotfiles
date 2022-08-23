@@ -17,7 +17,7 @@ function Set-Git-Configuration-In-Ubuntu {
 }
 
 function Copy-Vimrc-In-Ubuntu {
-  $DotfilesFinalVimrcPath = Join-Path -Path $DotfilesWorkFolder -ChildPath "Vim" | Join-Path -ChildPath "main.vimrc";
+  $DotfilesFinalVimrcPath = Join-Path -Path $DotfilesWorkFolder -ChildPath "WSL" | Join-Path -ChildPath "main.vimrc";
   $WslVimrcPath = wsl wslpath $DotfilesFinalVimrcPath.Replace("\", "\\");
 
   Write-Host "Copying Vim configuration file in Ubuntu..." -ForegroundColor "Green";

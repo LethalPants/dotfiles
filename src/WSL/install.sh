@@ -75,5 +75,10 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 printf "${GREEN}Installing Zsh-Autosuggestions in WSL...${DEFAULT}\n"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
+printf "${GREEN}Installing ripgrep in WSL...${DEFAULT}\n"
+sudo apt-get install --yes --no-install-recommends ripgrep
+
 curl -sS https://starship.rs/install.sh | sh
 chsh -s $(which zsh)
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
