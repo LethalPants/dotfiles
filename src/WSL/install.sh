@@ -8,6 +8,18 @@ sudo apt --yes update &&  sudo apt --yes upgrade
 printf "${GREEN}Installing Git in Ubuntu...${DEFAULT}\n"
 sudo apt install --yes --no-install-recommends git
 
+printf "${GREEN}Installing lsd in Ubuntu...${DEFAULT}\n"
+sudo apt install --yes --no-install-recommends lsd
+
+printf "${GREEN}Installing ripgrep in WSL...${DEFAULT}\n"
+sudo apt-get install --yes --no-install-recommends ripgrep
+
+printf "${GREEN}Installing bat in WSL...${DEFAULT}\n"
+sudo apt-get install --yes --no-install-recommends bat
+
+printf "${GREEN}Installing fzf in WSL...${DEFAULT}\n"
+sudo apt-get install --yes --no-install-recommends fzf
+
 printf "${GREEN}Installing ZSH in Ubuntu...${DEFAULT}\n"
 sudo apt install --yes --no-install-recommends zsh
 
