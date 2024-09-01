@@ -8,6 +8,9 @@ sudo apt --yes update &&  sudo apt --yes upgrade
 printf "${GREEN}Installing Git in Ubuntu...${DEFAULT}\n"
 sudo apt install --yes --no-install-recommends git
 
+printf "${GREEN}Installing lsd in Ubuntu...${DEFAULT}\n"
+sudo apt install --yes --no-install-recommends lsd
+
 printf "${GREEN}Installing ZSH in Ubuntu...${DEFAULT}\n"
 sudo apt install --yes --no-install-recommends zsh
 
@@ -68,15 +71,20 @@ sudo apt install --yes --no-install-recommends golang-go
 printf "${GREEN}Installing OhMyZSH in WSL...${DEFAULT}\n"
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 
-
 printf "${GREEN}Installing Zsh-SyntaxHighlighting in WSL...${DEFAULT}\n"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 printf "${GREEN}Installing Zsh-Autosuggestions in WSL...${DEFAULT}\n"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
-printf "${GREEN}Installing ripgrep in WSL...${DEFAULT}\n"
-sudo apt-get install --yes --no-install-recommends ripgrep
+printf "${GREEN}Installing fd in WSL...${DEFAULT}\n"
+sudo apt-get install --yes --no-install-recommends fd-find
+
+printf "${GREEN}Installing bat in WSL...${DEFAULT}\n"
+sudo apt-get install --yes --no-install-recommends bat
+
+printf "${GREEN}Installing fzf in WSL...${DEFAULT}\n"
+sudo apt-get install --yes --no-install-recommends fzf
 
 curl -sS https://starship.rs/install.sh | sh
 chsh -s $(which zsh)
